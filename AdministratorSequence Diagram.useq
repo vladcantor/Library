@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.6" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="gui.AdministratorGUI" project="Library" 
+    file="/Library/src/gui/AdministratorGUI.java" binary="false" label="administratorGUI" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="51" y="0"/>    
+    <execution id="2">      
+      <position height="387" width="120" x="5" y="78"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="gui.UnReserveGUI" project="Library" file="/Library/src/gui/UnReserveGUI.java" 
+    binary="false" label="unReserveGUI" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="261" y="0"/>    
+    <execution id="4">      
+      <position height="345" width="104" x="129" y="99"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="library.ctrl.LibraryController" project="Library" 
+    file="/Library/src/library/ctrl/LibraryController.java" binary="false" label="libraryController" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="719" y="0"/>    
+    <execution id="7">      
+      <position height="303" width="119" x="237" y="120"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="21" width="119" x="237" y="381"/>    
+    </execution>  
+  </object>  
+  <object id="13" language="java" name="model.Librarian" project="Library" file="/Library/src/model/Librarian.java" 
+    binary="false" label="librarian" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="790" y="0"/>    
+    <execution id="10">      
+      <position height="186" width="74" x="360" y="141"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="21" width="74" x="360" y="285"/>    
+    </execution>  
+  </object>  
+  <object id="18" language="java" name="repository.MemoryRepository" project="Library" 
+    file="/Library/src/repository/MemoryRepository.java" binary="false" label="memoryRepository" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="872" y="0"/>    
+    <execution id="15">      
+      <position height="63" width="130" x="438" y="162"/>    
+    </execution>  
+  </object>  
+  <object id="21" language="java" name="repository.LibraryRepositoryJDBC" project="Library" 
+    file="/Library/src/repository/LibraryRepositoryJDBC.java" binary="false" label="libraryRepositoryJDBC" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="957" y="0"/>    
+    <execution id="20">      
+      <position height="21" width="155" x="572" y="183"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="setVisible(boolean):void">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="UnReserveBook(java.lang.Integer,java.lang.Integer):void">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" operation="unReserveBook(java.lang.Integer,java.lang.Integer):void">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="update(java.util.Observable,java.lang.Object):void">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="14" operation="unReserveBook(java.lang.Integer,java.lang.Integer):void">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>  
+  <message id="16" operation="notifyObservers():void">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="19" operation="unReserveBook(java.lang.Integer,java.lang.Integer):void">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>
+</sequence-diagram>

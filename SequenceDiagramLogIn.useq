@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.6" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="gui.StartApp" project="Library" file="/Library/src/gui/StartApp.java" 
+    binary="false" label="startApp" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="89" y="0"/>    
+    <execution id="2">      
+      <position height="289" width="73" x="5" y="90"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="gui.Login" project="Library" file="/Library/src/gui/Login.java" binary="false" 
+    label="login" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="93" y="0"/>    
+    <execution id="4">      
+      <position height="247" width="54" x="82" y="111"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="library.ctrl.LibraryController" project="Library" 
+    file="/Library/src/library/ctrl/LibraryController.java" binary="false" label="libraryController" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="171" y="0"/>    
+    <execution id="7">      
+      <position height="195" width="119" x="140" y="142"/>    
+    </execution>  
+  </object>  
+  <object id="11" language="java" name="model.Librarian" project="Library" file="/Library/src/model/Librarian.java" 
+    binary="false" label="librarian" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="301" y="0"/>    
+    <execution id="10">      
+      <position height="141" width="74" x="263" y="175"/>    
+    </execution>  
+  </object>  
+  <object id="14" language="java" name="repository.MemoryRepository" project="Library" 
+    file="/Library/src/repository/MemoryRepository.java" binary="false" label="memoryRepository" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="414" y="0"/>    
+    <execution id="13">      
+      <position height="78" width="130" x="341" y="217"/>    
+    </execution>  
+  </object>  
+  <object id="17" language="java" name="repository.LibraryRepositoryJDBC" project="Library" 
+    file="/Library/src/repository/LibraryRepositoryJDBC.java" binary="false" label="libraryRepositoryJDBC" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="511" y="0"/>    
+    <execution id="16">      
+      <position height="21" width="155" x="475" y="253"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="Login(javax.swing.JFrame,library.ctrl.LibraryController,java.lang.Integer)" x="47" y="79">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="checkLogin(java.lang.String,java.lang.String,java.lang.Boolean):model.Subscriber">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" operation="checkUser(java.lang.String,java.lang.String):model.Subscriber">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="12" operation="CheckUser(java.lang.String,java.lang.String):model.Subscriber">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="15" operation="CheckUser(java.lang.String,java.lang.String):model.Subscriber" x="415" y="231">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>
+</sequence-diagram>

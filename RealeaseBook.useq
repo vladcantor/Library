@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.6" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="gui.BookKeeperGUI" project="Library" file="/Library/src/gui/BookKeeperGUI.java" 
+    binary="false" label="bookKeeperGUI" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="15" y="0"/>    
+    <execution id="2">      
+      <position height="345" width="112" x="5" y="78"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="gui.ReleaseBook" project="Library" file="/Library/src/gui/ReleaseBook.java" 
+    binary="false" label="releaseBook" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="124" y="0"/>    
+    <execution id="4">      
+      <position height="303" width="98" x="121" y="99"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="library.ctrl.LibraryController" project="Library" 
+    file="/Library/src/library/ctrl/LibraryController.java" binary="false" label="libraryController" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="142" y="0"/>    
+    <execution id="7">      
+      <position height="261" width="119" x="223" y="120"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="21" width="119" x="223" y="339"/>    
+    </execution>  
+  </object>  
+  <object id="13" language="java" name="model.Librarian" project="Library" file="/Library/src/model/Librarian.java" 
+    binary="false" label="librarian" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="305" y="0"/>    
+    <execution id="10">      
+      <position height="148" width="74" x="346" y="141"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="21" width="74" x="346" y="247"/>    
+    </execution>  
+  </object>  
+  <object id="18" language="java" name="repository.ILibraryRepository" project="Library" 
+    file="/Library/src/repository/ILibraryRepository.java" binary="false" label="iLibraryRepository" type="interface" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="358" y="0"/>    
+    <execution id="15">      
+      <position height="21" width="127" x="424" y="162"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="setVisible(boolean):void">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="releaseBook(java.lang.String,java.lang.String):void">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" operation="releaseBook(java.lang.String,java.lang.String):void">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="update(java.util.Observable,java.lang.Object):void">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="14" operation="releaseBook(java.lang.Integer,java.lang.Integer):void">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>  
+  <message id="16" operation="notifyObservers(java.lang.Object):void">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>
+</sequence-diagram>
