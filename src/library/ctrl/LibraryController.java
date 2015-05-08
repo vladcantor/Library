@@ -1,6 +1,6 @@
 package library.ctrl;
 
-import gui.BooksGUI;
+import interfaces.LibraryService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 
 import model.Book;
@@ -18,8 +17,8 @@ import model.Reserved;
 import model.Resigned;
 import model.Subscriber;
 
-public class LibraryController implements Observer {
-	private Librarian lib;
+public class LibraryController {
+	private LibraryService lib;
 	LibraryBookTableModel bookTM;
 	LibrarySubscriberTableModel subsTM;
 	LibraryRentedBooksTableModel bookrentedTM;
@@ -29,7 +28,7 @@ public class LibraryController implements Observer {
 	LibrarySubscriberTableModel allowTM;
 	
 	
-	public LibraryController(Librarian l) throws LibraryException
+	public LibraryController(LibraryService l) throws LibraryException
 	{
 		this.lib = l;
 		HashMap<Integer, Reserved> res = lib.getAllReservedBooks();
@@ -47,7 +46,7 @@ public class LibraryController implements Observer {
 		this.resignedTM = new LibrarySubscriberTableModel(this.lib.getEligibleSubscribers());
 		this.allowTM = new LibrarySubscriberTableModel(lib.getResignedSubscribers());
 		
-		lib.addObserver(this);
+		//lib.addObserver(this);
 		
 	}
 	public TableModel getBookTM()
@@ -62,9 +61,9 @@ public class LibraryController implements Observer {
 	{
 		return this.reservedTM;
 	}
-	public Librarian getLibrarian()
+	public Subscriber getSubscriberById(String subscriberId) throws Exception
 	{
-		return this.lib;
+		return this.lib.getSubscriberById(subscriberId);
 	}
 	public TableModel getUnReserveTM()
 	{
@@ -126,8 +125,8 @@ public class LibraryController implements Observer {
     		throw new LibraryException(e.getMessage());
     	}
     }
-	@Override
-	public void update(Observable o, Object arg) {
+
+	public void update() {
         try {
 			subsTM.setSubscribers(lib.getFreeSubscribers());
 		} catch (LibraryException e) {
@@ -182,7 +181,7 @@ public class LibraryController implements Observer {
    }
 
    public void close() {
-       lib.deleteObserver(this);
+      // lib.deleteObserver(this);
 		
 	}
    public TableModel getSubscriberModel() {
@@ -196,33 +195,33 @@ public class LibraryController implements Observer {
    {
 	   return this.allowTM.get(index);
    }
-public void releaseBook(String spuncte, String idP) throws Exception {
+	public void releaseBook(String spuncte, String idP) throws Exception {
+		
+		this.lib.releaseBook(spuncte, idP);
+	}
+	public void addUser(int sid, String user, String pass) throws LibraryException{
+		this.lib.addUser(sid, user, pass);
+	}
+	public Subscriber checkLogin(String user, String pass, Boolean check) throws LibraryException
+	{
+		
+		return this.lib.checkUser(user, pass);
+	}
+	public Subscriber getAdministrator(Subscriber s) throws LibraryException{
+		return this.lib.getAdmin(s);
+	}
 	
-	this.lib.releaseBook(spuncte, idP);
-}
-public void addUser(int sid, String user, String pass) throws LibraryException{
-	this.lib.addUser(sid, user, pass);
-}
-public Subscriber checkLogin(String user, String pass, Boolean check) throws LibraryException
-{
-	
-	return this.lib.checkUser(user, pass);
-}
-public Subscriber getAdministrator(Subscriber s) throws LibraryException{
-	return this.lib.getAdmin(s);
-}
-
-public void UnReserveBook(Integer bid, Integer sid) throws LibraryException
-{
-	this.lib.unReserveBook(bid, sid);
-}
-public void resignRights(Integer sid, String motive) throws LibraryException{
-	this.lib.resignRights(sid, motive);
-}
-public List<Resigned> getAllResigned() throws LibraryException{
-	return this.getAllResigned();
-}
-public void allowSubscribing(Integer sid) throws LibraryException{
+	public void UnReserveBook(Integer bid, Integer sid) throws LibraryException
+	{
+		this.lib.unReserveBook(bid, sid);
+	}
+	public void resignRights(Integer sid, String motive) throws LibraryException{
+		this.lib.resignRights(sid, motive);
+	}
+	public List<Resigned> getAllResigned() throws LibraryException{
+		return this.getAllResigned();
+	}
+	public void allowSubscribing(Integer sid) throws LibraryException{
 	this.lib.allowSubscribing(sid);
 }
 }

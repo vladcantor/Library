@@ -95,7 +95,7 @@ import model.Subscriber;
 	                 try {
 	                     ctrl.AddSubscriber(idP, numeP);
 	                     ctrl.addUser(Integer.parseInt(idP), user.getText(), new String(password.getPassword()));
-	                     Subscriber s = ctrl.getLibrarian().getSubscriberById(idP);
+	                     Subscriber s = ctrl.getSubscriberById(idP);
 	                     SubscriberGUI2 dialog = new SubscriberGUI2 (ctrl, s);
 	 					 dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 	 					 dialog.setVisible(true);

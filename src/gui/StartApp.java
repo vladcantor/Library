@@ -39,7 +39,7 @@ public class StartApp extends JFrame {
 	 * Create the frame.
 	 */
 	public StartApp(LibraryController c) {
-		super("Start Application");
+		super("StartServer Application");
 		this.type = -1;
 		this.ctrl = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

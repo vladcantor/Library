@@ -32,7 +32,7 @@ public class BooksGUI extends JFrame{
 	 private LibraryController ctrl;
 	 private JFrame parinte;
 	    public BooksGUI(JFrame par, LibraryController ctrl){
-	        super("Library");
+	        super("LibraryService");
 	        this.parinte = par;
 	        this.ctrl=ctrl;
 	        setJMenuBar(creeazaMeniu());
