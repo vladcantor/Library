@@ -29,6 +29,7 @@ import java.awt.event.MouseEvent;
 import java.awt.Rectangle;
 import java.beans.VetoableChangeListener;
 import java.beans.PropertyChangeEvent;
+import java.rmi.RemoteException;
 
 import javax.swing.JScrollPane;
 
@@ -55,6 +56,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
 
 import java.awt.Color;
+
 import javax.swing.ScrollPaneConstants;
 import javax.swing.UIManager;
 
@@ -195,7 +197,10 @@ public class SubscriberGUI2 extends JDialog {
 	            } catch (LibraryException ex) {
 	                JOptionPane.showMessageDialog(SubscriberGUI2.this,ex.getMessage(), "Eroare adaugare imprumut", JOptionPane.ERROR_MESSAGE);
 
-	            }
+	            } catch (RemoteException ex) {
+	            	JOptionPane.showMessageDialog(SubscriberGUI2.this,ex.getMessage(), "Eroare adaugare imprumut", JOptionPane.ERROR_MESSAGE);
+					ex.printStackTrace();
+				}
 
 	        }
 	    }

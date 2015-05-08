@@ -32,6 +32,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.ListSelectionModel;
 
 import java.awt.Point;
+import java.rmi.RemoteException;
 
 public class ReserveBooks extends JFrame {
 
@@ -119,7 +120,11 @@ public class ReserveBooks extends JFrame {
 				} catch (NumberFormatException e1) {
 					JOptionPane.showMessageDialog(ReserveBooks.this, e1.getMessage());
 					e1.printStackTrace();
-				} catch (LibraryException e1) {
+				} catch (RemoteException e1) {
+					JOptionPane.showMessageDialog(ReserveBooks.this, e1.getMessage());
+					e1.printStackTrace();
+				} 
+				catch (LibraryException e1) {
 					JOptionPane.showMessageDialog(ReserveBooks.this, e1.getMessage());
 					e1.printStackTrace();
 				}

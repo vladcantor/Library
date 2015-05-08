@@ -24,6 +24,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.rmi.RemoteException;
 
 public class ResignRenting extends JFrame {
 
@@ -81,7 +82,7 @@ public class ResignRenting extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				try {
 					ctrl.resignRights(Integer.parseInt(txtSubscriberid.getText()), textFieldReason.getText());
-				} catch (NumberFormatException | LibraryException e) {
+				} catch (NumberFormatException | LibraryException | RemoteException e) {
 					JOptionPane.showMessageDialog(ResignRenting.this, e.getMessage());
 					e.printStackTrace();
 				}

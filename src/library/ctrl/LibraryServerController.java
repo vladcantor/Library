@@ -72,7 +72,7 @@ public class LibraryServerController extends Observable implements
 	}
 
 	@Override
-	public void addBook(Integer Id, String title) throws LibraryException {
+	public void addBook(int Id, String title) throws LibraryException {
 		this.librarian.addBook(Id, title);
 
 	}
@@ -158,14 +158,14 @@ public class LibraryServerController extends Observable implements
 	}
 
 	@Override
-	public void addReservedBook(Integer bid, Integer sid)
+	public void addReservedBook(int bid, int sid)
 			throws LibraryException {
 		this.librarian.addReservedBook(bid, sid);
 
 	}
 
 	@Override
-	public void unReserveBook(Integer bid, Integer sid) throws LibraryException {
+	public void unReserveBook(int bid, int sid) throws LibraryException {
 		this.librarian.unReserveBook(bid, sid);
 
 	}
@@ -177,7 +177,7 @@ public class LibraryServerController extends Observable implements
 	}
 
 	@Override
-	public void resignRights(Integer sid, String motive)
+	public void resignRights(int sid, String motive)
 			throws LibraryException {
 		this.librarian.resignRights(sid, motive);
 
@@ -189,7 +189,7 @@ public class LibraryServerController extends Observable implements
 	}
 
 	@Override
-	public void allowSubscribing(Integer sid) throws LibraryException {
+	public void allowSubscribing(int sid) throws LibraryException {
 		this.librarian.allowSubscribing(sid);
 	}
 
@@ -205,7 +205,7 @@ public class LibraryServerController extends Observable implements
 	}
 
 	@Override
-	public boolean isResigned(Integer sid) throws LibraryException {
+	public boolean isResigned(int sid) throws LibraryException {
 		return librarian.isResigned(sid);
 	}
 

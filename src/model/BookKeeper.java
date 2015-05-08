@@ -1,6 +1,8 @@
 package model;
 
-public class BookKeeper extends Subscriber{
+import java.io.Serializable;
+
+public class BookKeeper extends Subscriber implements Serializable{
 	private String firstN;
 
 	public BookKeeper(String lname, String fname) {

@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.rmi.RemoteException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -147,7 +148,10 @@ public class BooksGUI extends JFrame{
 	            } catch (LibraryException ex) {
 	                JOptionPane.showMessageDialog(BooksGUI.this,ex.getMessage(), "Eroare adaugare imprumut", JOptionPane.ERROR_MESSAGE);
 
-	            }
+	            } catch (RemoteException ex) {
+	            	JOptionPane.showMessageDialog(BooksGUI.this,ex.getMessage(), "Eroare adaugare imprumut", JOptionPane.ERROR_MESSAGE);
+
+				}
 
 	        }
 	    }

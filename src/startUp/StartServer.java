@@ -1,5 +1,7 @@
 package startUp;
 
+import interfaces.LibraryService;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.rmi.AlreadyBoundException;
@@ -40,7 +42,7 @@ public class StartServer {
 		String rmiId = System.getProperty("RMI_ID");
 		int rmiPort = Integer.parseInt(System.getProperty("RMI_Port"));
 		Registry reg = LocateRegistry.createRegistry(rmiPort);
-		LibraryServerController controller = (LibraryServerController)UnicastRemoteObject
+		LibraryService controller = (LibraryService)UnicastRemoteObject
                 .exportObject(new LibraryServerController(concurs), rmiPort);
 		reg.bind(rmiId, controller);
 

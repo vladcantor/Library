@@ -21,6 +21,7 @@ import model.Subscriber;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.rmi.RemoteException;
 
 public class AllowSubscriber extends JFrame {
 
@@ -77,6 +78,9 @@ public class AllowSubscriber extends JFrame {
 				try {
 					ctrl.allowSubscribing(Integer.parseInt(txtSubscriberid.getText()));
 				} catch (NumberFormatException | LibraryException e) {
+					JOptionPane.showMessageDialog(AllowSubscriber.this, e.getMessage());
+					e.printStackTrace();
+				} catch (RemoteException e) {
 					JOptionPane.showMessageDialog(AllowSubscriber.this, e.getMessage());
 					e.printStackTrace();
 				}

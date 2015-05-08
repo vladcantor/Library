@@ -1,6 +1,12 @@
 package model;
 
-public class Resigned {
+import java.io.Serializable;
+
+public class Resigned implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Subscriber s;
 	private String reason;
 	public Resigned(Subscriber s, String reason) {

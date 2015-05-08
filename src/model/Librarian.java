@@ -8,7 +8,7 @@ import java.util.Observable;
 
 import model.LibraryException;
 import repository.*;
-public class Librarian extends Observable{
+public class Librarian extends Observable {
 	
 	    private ILibraryRepository libRepository;
 

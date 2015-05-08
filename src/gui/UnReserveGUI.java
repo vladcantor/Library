@@ -33,8 +33,12 @@ import java.awt.ComponentOrientation;
 import javax.swing.ListSelectionModel;
 
 import java.awt.Point;
+
 import org.eclipse.wb.swing.FocusTraversalOnArray;
+
 import java.awt.Component;
+import java.rmi.RemoteException;
+
 import javax.swing.UIManager;
 
 public class UnReserveGUI extends JFrame {
@@ -105,6 +109,9 @@ public class UnReserveGUI extends JFrame {
 				try {
 					ctrl.UnReserveBook(Integer.parseInt(txtBook.getText()), Integer.parseInt(txtSubscriber.getText()));
 				} catch (NumberFormatException | LibraryException e) {
+					JOptionPane.showMessageDialog(UnReserveGUI.this, e.getMessage());
+					e.printStackTrace();
+				} catch (RemoteException e) {
 					JOptionPane.showMessageDialog(UnReserveGUI.this, e.getMessage());
 					e.printStackTrace();
 				}

@@ -1,6 +1,12 @@
 package model;
 
-public class Administrator extends Subscriber{
+import java.io.Serializable;
+
+public class Administrator extends Subscriber implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String firstN;
 
 	public Administrator(String lname, String first) {

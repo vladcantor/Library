@@ -2,6 +2,7 @@ package library.ctrl;
 
 import interfaces.LibraryService;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,7 +29,7 @@ public class LibraryController {
 	LibrarySubscriberTableModel allowTM;
 	
 	
-	public LibraryController(LibraryService l) throws LibraryException
+	public LibraryController(LibraryService l) throws LibraryException, RemoteException
 	{
 		this.lib = l;
 		HashMap<Integer, Reserved> res = lib.getAllReservedBooks();
@@ -94,12 +95,12 @@ public class LibraryController {
     {
     	return this.unreserveTM.get(index);
     }
-    public void rentABook(String sId, String bId) throws LibraryException
+    public void rentABook(String sId, String bId) throws LibraryException, RemoteException
     {
     	this.lib.adaugaRentedBook(sId, bId);
     	
     }
-    public void reserveBook(Integer bid, Integer sid) throws LibraryException
+    public void reserveBook(Integer bid, Integer sid) throws LibraryException, RemoteException
     {
     	this.lib.addReservedBook(bid, sid);
     }
@@ -110,7 +111,12 @@ public class LibraryController {
     	this.lib.addBook(Integer.parseInt(Id), Title);
     	
     	
-    	}catch(Exception e)
+    	}
+    	catch(RemoteException e)
+    	{
+    		throw new LibraryException(e.getMessage());
+    	}
+    	catch(Exception e)
     	{
     		throw new LibraryException(e.getMessage());
     	}
@@ -126,7 +132,7 @@ public class LibraryController {
     	}
     }
 
-	public void update() {
+	public void update() throws RemoteException {
         try {
 			subsTM.setSubscribers(lib.getFreeSubscribers());
 		} catch (LibraryException e) {
@@ -199,29 +205,29 @@ public class LibraryController {
 		
 		this.lib.releaseBook(spuncte, idP);
 	}
-	public void addUser(int sid, String user, String pass) throws LibraryException{
+	public void addUser(int sid, String user, String pass) throws LibraryException, RemoteException{
 		this.lib.addUser(sid, user, pass);
 	}
-	public Subscriber checkLogin(String user, String pass, Boolean check) throws LibraryException
+	public Subscriber checkLogin(String user, String pass, Boolean check) throws LibraryException, RemoteException
 	{
 		
 		return this.lib.checkUser(user, pass);
 	}
-	public Subscriber getAdministrator(Subscriber s) throws LibraryException{
+	public Subscriber getAdministrator(Subscriber s) throws LibraryException, RemoteException{
 		return this.lib.getAdmin(s);
 	}
 	
-	public void UnReserveBook(Integer bid, Integer sid) throws LibraryException
+	public void UnReserveBook(Integer bid, Integer sid) throws LibraryException, RemoteException
 	{
 		this.lib.unReserveBook(bid, sid);
 	}
-	public void resignRights(Integer sid, String motive) throws LibraryException{
+	public void resignRights(Integer sid, String motive) throws LibraryException, RemoteException{
 		this.lib.resignRights(sid, motive);
 	}
-	public List<Resigned> getAllResigned() throws LibraryException{
+	public List<Resigned> getAllResigned() throws LibraryException, RemoteException{
 		return this.getAllResigned();
 	}
-	public void allowSubscribing(Integer sid) throws LibraryException{
+	public void allowSubscribing(Integer sid) throws LibraryException, RemoteException{
 	this.lib.allowSubscribing(sid);
 }
 }

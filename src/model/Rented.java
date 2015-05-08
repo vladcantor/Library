@@ -1,9 +1,14 @@
 package model;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.Calendar;
 
-public class Rented {
+public class Rented implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Date date;
 	private Book b;
 	private Subscriber s;

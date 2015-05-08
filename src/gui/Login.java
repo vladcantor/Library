@@ -21,10 +21,12 @@ import java.awt.Component;
 
 
 
+
 import javax.swing.JLabel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.rmi.RemoteException;
 import java.util.concurrent.ExecutionException;
 
 import library.ctrl.LibraryController;
@@ -140,6 +142,8 @@ public class Login extends JFrame {
 				}
 			}catch(LibraryException ex)
 			{
+				JOptionPane.showMessageDialog(Login.this,ex.getMessage(), "Error at Login", JOptionPane.ERROR_MESSAGE);
+			} catch (RemoteException ex) {
 				JOptionPane.showMessageDialog(Login.this,ex.getMessage(), "Error at Login", JOptionPane.ERROR_MESSAGE);
 			}
 			
