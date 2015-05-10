@@ -147,10 +147,10 @@ public class BooksGUI extends JFrame{
 	                return;
 	            } catch (LibraryException ex) {
 	                JOptionPane.showMessageDialog(BooksGUI.this,ex.getMessage(), "Eroare adaugare imprumut", JOptionPane.ERROR_MESSAGE);
-
+	                return;
 	            } catch (RemoteException ex) {
 	            	JOptionPane.showMessageDialog(BooksGUI.this,ex.getMessage(), "Eroare adaugare imprumut", JOptionPane.ERROR_MESSAGE);
-
+	            	return;
 				}
 
 	        }

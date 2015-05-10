@@ -80,9 +80,11 @@ public class AllowSubscriber extends JFrame {
 				} catch (NumberFormatException | LibraryException e) {
 					JOptionPane.showMessageDialog(AllowSubscriber.this, e.getMessage());
 					e.printStackTrace();
+					return;
 				} catch (RemoteException e) {
 					JOptionPane.showMessageDialog(AllowSubscriber.this, e.getMessage());
 					e.printStackTrace();
+					return;
 				}
 			}
 		});

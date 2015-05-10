@@ -6,6 +6,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 import library.ctrl.LibraryController;
+import model.LibraryException;
 
 public class ClientServiceManager extends UnicastRemoteObject implements RemoteObserver{
 
@@ -22,7 +23,7 @@ public class ClientServiceManager extends UnicastRemoteObject implements RemoteO
 
 	@Override
 	public void update(Object observable, Object updateMsg)
-			throws RemoteException {
+			throws RemoteException, LibraryException {
 		this.controller.update();
 		
 	}

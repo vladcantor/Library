@@ -85,6 +85,7 @@ public class ResignRenting extends JFrame {
 				} catch (NumberFormatException | LibraryException | RemoteException e) {
 					JOptionPane.showMessageDialog(ResignRenting.this, e.getMessage());
 					e.printStackTrace();
+					return;
 				}
 			}
 		});

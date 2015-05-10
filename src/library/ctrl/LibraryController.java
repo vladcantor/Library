@@ -132,26 +132,49 @@ public class LibraryController {
     	}
     }
 
-	public void update() throws RemoteException {
+	public void update() throws LibraryException, RemoteException {
         try {
 			subsTM.setSubscribers(lib.getFreeSubscribers());
 		} catch (LibraryException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return;
+		}
+        catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
 			
 		}
+        
         try {
 			bookTM.setBooks(lib.getFreeBooks());
 		} catch (LibraryException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return;
 		}
+        catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+			
+		}
+        
         try {
 			bookrentedTM.setBooks(lib.getRentedBooks());
 		} catch (LibraryException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return;
 		}
+        catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+			
+		}
+        
         try{
         	HashMap<Integer, Reserved> res = lib.getAllReservedBooks();
         	List<Book> books = lib.getRentedBooks();
@@ -161,15 +184,30 @@ public class LibraryController {
         			notReserved.add(b);
         			
         	reservedTM.setReservedBooks(notReserved);
-        }catch(LibraryException e)
-        {
-        	e.printStackTrace();
-        }
+        }catch (LibraryException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+		}
+        catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+			
+		}
+        
         try {
 			this.unreserveTM.setUnReservedBooks(this.lib.getAllReservedBooks());
 		} catch (LibraryException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return;
+		}
+        catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+			
 		}
         
         try {
@@ -177,12 +215,27 @@ public class LibraryController {
 		} catch (LibraryException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return;
 		}
+        catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+			
+		}
+        
         try {
 			this.allowTM.setSubscribers(this.lib.getResignedSubscribers());
 		} catch (LibraryException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return;
+		}
+        catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+			
 		}
    }
 

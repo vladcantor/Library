@@ -62,6 +62,10 @@ import javax.swing.UIManager;
 
 public class SubscriberGUI2 extends JDialog {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	private JTable tableCatalogBook;
 	private JButton okButton;
@@ -196,10 +200,11 @@ public class SubscriberGUI2 extends JDialog {
 	                return;
 	            } catch (LibraryException ex) {
 	                JOptionPane.showMessageDialog(SubscriberGUI2.this,ex.getMessage(), "Eroare adaugare imprumut", JOptionPane.ERROR_MESSAGE);
-
+	                return;
 	            } catch (RemoteException ex) {
 	            	JOptionPane.showMessageDialog(SubscriberGUI2.this,ex.getMessage(), "Eroare adaugare imprumut", JOptionPane.ERROR_MESSAGE);
 					ex.printStackTrace();
+					return;
 				}
 
 	        }

@@ -120,13 +120,16 @@ public class ReserveBooks extends JFrame {
 				} catch (NumberFormatException e1) {
 					JOptionPane.showMessageDialog(ReserveBooks.this, e1.getMessage());
 					e1.printStackTrace();
+					return;
 				} catch (RemoteException e1) {
 					JOptionPane.showMessageDialog(ReserveBooks.this, e1.getMessage());
 					e1.printStackTrace();
+					return;
 				} 
 				catch (LibraryException e1) {
 					JOptionPane.showMessageDialog(ReserveBooks.this, e1.getMessage());
 					e1.printStackTrace();
+					return;
 				}
 			}
 		});

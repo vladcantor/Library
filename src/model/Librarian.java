@@ -17,7 +17,7 @@ public class Librarian extends Observable {
 	       libRepository=repository;
 	    }
 
-	    public synchronized void adaugaRentedBook(String ID, String bookId) throws LibraryException{
+	    public void adaugaRentedBook(String ID, String bookId) throws LibraryException{
 	        
 	            Subscriber p=libRepository.findSubscriberById(Integer.parseInt(ID));
 	            Book b = libRepository.findBookById(Integer.parseInt(bookId));
@@ -70,7 +70,7 @@ public class Librarian extends Observable {
 	    	return false;
 	    }
 
-	    public synchronized void adaugaSubscriber(String Id, String title) throws LibraryException{
+	    public void adaugaSubscriber(String Id, String title) throws LibraryException{
 	        Subscriber part=new Subscriber(title);
 	       part.setId(Integer.parseInt(Id));
 	            libRepository.addSubscriber(part);;
@@ -80,7 +80,7 @@ public class Librarian extends Observable {
 	           
 	       
 	    }
-	    public synchronized void addBook(Integer Id, String title) throws LibraryException
+	    public void addBook(Integer Id, String title) throws LibraryException
 	    {
 	    	Book b = new Book(title, true);
 	    	b.setId( Id);
@@ -94,7 +94,7 @@ public class Librarian extends Observable {
 	    	}
 	    }
 	    
-	    public synchronized List<Subscriber> getFreeSubscribers() throws LibraryException
+	    public List<Subscriber> getFreeSubscribers() throws LibraryException
 	    {
 	    	List<Subscriber> ls = new ArrayList<Subscriber>();
 	    	for(Subscriber s:this.libRepository.getAllSubscribers())
@@ -102,7 +102,7 @@ public class Librarian extends Observable {
 	    			ls.add(s);
 	    	return ls;
 	    }
-	    public synchronized List<Book> getFreeBooks() throws LibraryException
+	    public List<Book> getFreeBooks() throws LibraryException
 	    {
 	    	List<Book> lb = new ArrayList<Book>();
 	    	for(Book b:this.libRepository.getAllBooks())
@@ -110,19 +110,19 @@ public class Librarian extends Observable {
 	    			lb.add(b);
 	    	return lb;
 	    }
-	    public synchronized List<Subscriber> getSubscribers() throws LibraryException{
+	    public List<Subscriber> getSubscribers() throws LibraryException{
 	        return libRepository.getAllSubscribers();
 	    }
-	    public synchronized List<Book> getBooks() throws LibraryException
+	    public List<Book> getBooks() throws LibraryException
 	    {
 	    	return libRepository.getAllBooks();
 	    }
 
-	    public synchronized List<Book> getBookBySubstring(String subs) throws LibraryException{
+	    public List<Book> getBookBySubstring(String subs) throws LibraryException{
 	        return libRepository.findByTitle(subs);
 	    }
 
-	   public synchronized Book getBookByTitle(String title) throws LibraryException
+	   public Book getBookByTitle(String title) throws LibraryException
 	   {
 		   for(Book b:this.libRepository.getAllBooks())
 			   if(b.getTitle() == title)
@@ -131,18 +131,18 @@ public class Librarian extends Observable {
 			   
 		  
 	   }
-	   public synchronized Book getBookById(String Id) throws LibraryException
+	   public Book getBookById(String Id) throws LibraryException
 	   {
 		   
 		   return this.libRepository.findBookById(Integer.parseInt(Id));
 	   }
-	   public synchronized Subscriber getSubscriberById(String id) throws Exception
+	   public Subscriber getSubscriberById(String id) throws LibraryException
 	   {
 		   		return this.libRepository.findSubscriberById(Integer.parseInt(id));
 			  
 	   }
 
-	public synchronized List<Book> getRentedBooks() throws LibraryException {
+	public List<Book> getRentedBooks() throws LibraryException {
 		List<Book> blist = new ArrayList<Book>();
 		for(Book b: this.libRepository.getAllBooks())
 			if(b.getAvalability() == false)
@@ -150,7 +150,7 @@ public class Librarian extends Observable {
 			
 		return blist;
 	}
-	public synchronized void releaseBook(String spuncte, String idP) throws Exception {
+	public void releaseBook(String spuncte, String idP) throws LibraryException {
 	
 		
 		Subscriber s = this.getSubscriberById(spuncte);

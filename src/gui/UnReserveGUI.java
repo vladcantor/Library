@@ -111,9 +111,11 @@ public class UnReserveGUI extends JFrame {
 				} catch (NumberFormatException | LibraryException e) {
 					JOptionPane.showMessageDialog(UnReserveGUI.this, e.getMessage());
 					e.printStackTrace();
+					return;
 				} catch (RemoteException e) {
 					JOptionPane.showMessageDialog(UnReserveGUI.this, e.getMessage());
 					e.printStackTrace();
+					return;
 				}
 			}
 		});
